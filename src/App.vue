@@ -9,7 +9,6 @@
 
 <script>
 
-
 export default {
   name: 'App',
   data() {
@@ -25,6 +24,13 @@ export default {
       }
     }
   },
+  watch: { //watches something and runs every time it changes
+    followers(newFollowerCount, oldFollowerCount) { //give it the same name as what you are watching just to make it readable
+      if(oldFollowerCount < newFollowerCount) {
+        console.log(`${this.user.username} has gained a follower!`);
+      }
+    }
+  },
   computed: {
     fullName() {
       return `${this.user.firstName} ${this.user.lastName}`;
@@ -34,6 +40,10 @@ export default {
     followUser() {
       this.followers++;
     }
+  },
+  
+  mounted() { //run every time component is loaded for the first time, or remounted, each time starts the first time. Lifecycle hook
+    this.followUser();
   }
 }
 </script>
