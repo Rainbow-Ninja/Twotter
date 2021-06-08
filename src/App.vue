@@ -1,6 +1,9 @@
 <template>
   <div id='app'>
-    @{{ user.username }}
+    @{{ user.username }} - {{ fullName }}
+    <strong>Followers: </strong>{{ followers }}
+    <!-- <button v-on:click="followUser">Follow</button> these two lines are the same!! --> 
+    <button @click="followUser">Follow</button>
   </div>
 </template>
 
@@ -9,17 +12,27 @@
 
 export default {
   name: 'App',
-  date() {
+  data() {
     return {
       followers: 0,
       user: {
         id: 1,
         username: 'CodeTravelled',
         firstName: 'Jo',
-        lastname: 'Dunham',
+        lastName: 'Dunham',
         email: 'joDunham@email.com',
         isAdmin: true
       }
+    }
+  },
+  computed: {
+    fullName() {
+      return `${this.user.firstName} ${this.user.lastName}`;
+    }
+  },
+  methods: {
+    followUser() {
+      this.followers++;
     }
   }
 }
@@ -32,6 +45,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 </style>
