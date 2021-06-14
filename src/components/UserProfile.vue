@@ -9,7 +9,7 @@
     <!-- <button v-on:click="followUser">Follow</button> 
     <button @click="followUser">Follow</button>  these two lines are the same!! --> 
         </div>
-        <form class="user-profile__create-twoot>
+        <form class="user-profile__create-twoot">
             <label for="newTwoot"><strong>New Twoot</strong></label>
             <textarea id="newTwoot" rows="4"/>
         </form>
