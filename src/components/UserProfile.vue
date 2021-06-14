@@ -9,6 +9,10 @@
     <!-- <button v-on:click="followUser">Follow</button> 
     <button @click="followUser">Follow</button>  these two lines are the same!! --> 
         </div>
+        <form class="user-profile__create-twoot>
+            <label for="newTwoot"><strong>New Twoot</strong></label>
+            <textarea id="newTwoot" rows="4"/>
+        </form>
       </div>
       <div class="user-profile__twoots-wrapper">
         <TwootItem 
@@ -99,9 +103,21 @@ export default {
         margin-right: auto;
         padding: 0 10px;
         font-weight: bold;
+        margin-bottom: 20px;
     }
 
     h1 {
         margin: 0;
+    }
+
+    .user-profile__twoots-wrapper {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    .user-profile__create-twoot {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
     }
 </style>
